@@ -1,0 +1,28 @@
+<aura:component controller="StockUpdateController" implements="force:appHostable">
+	<!--Require files-->
+    <ltng:require styles="/resource/stockfiles/stockfiles/smarketcss.css"
+                  scripts="/resource/stockfiles/stockfiles/jquerymin.js,
+							/resource/stockfiles/stockfiles/highcharts.js,
+							/resource/stockfiles/stockfiles/jquery.highchartTable.js" 
+                  afterScriptsLoaded="{!c.doInit}"></ltng:require>
+    
+    <aura:attribute name="symbols" type="StockSymbol__c[]" />
+    
+    <br/><br/>
+    <!--Companies list with symbol-->
+    <select onchange="{!c.stockUpdate}" id="stocksym" style="border:1px solid #ccc;appearance: none;background:transparent;width:100%;height:34px;font-size: 16px;">
+        <option value="">--Select Company--</option>
+        <aura:iteration items="{!v.symbols}" var="symbol">
+            <option value="{!symbol.Symbol__c}">{!symbol.Company__c},{!symbol.StockExchange__c}</option>
+        </aura:iteration>
+    </select>
+    <!--Custom Message -->
+    <div id="msg" style="display:none;color:red;">No Records Found</div>
+    <!--Strock Data-->
+    <div>
+        <div class="stockInfo"></div>
+    </div>
+    <!--Strock Chart-->
+    <div class="tb"></div>
+    	
+</aura:component>
