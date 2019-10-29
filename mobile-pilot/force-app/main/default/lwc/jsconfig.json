@@ -8,6 +8,9 @@
             ],
             "c/accountLocationsMap2": [
                 "accountLocationsMap2/accountLocationsMap2.js"
+            ],
+            "c/leaflet": [
+                "../staticresources/leaflet/leaflet.js"
             ]
         }
     },
